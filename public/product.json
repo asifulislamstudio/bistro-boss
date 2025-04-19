@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "Caesar Salad",
+      "description": "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
+      "image": "https://cdn.pixabay.com/photo/2022/05/20/08/55/pasta-7209002_960_720.jpg",
+      "price": 8.99
+    },
+    {
+      "id": 2,
+      "name": "Greek Salad",
+      "description": "Tomatoes, Cucumbers, Red Onions, Kalamata Olives, Feta Cheese.",
+      "image": "https://cdn.pixabay.com/photo/2017/03/25/10/21/salad-2173214_960_720.jpg",
+      "price": 7.99
+    },
+    {
+      "id": 3,
+      "name": "Garden Salad",
+      "description": "Lettuce, Cherry Tomatoes, Cucumbers, Carrots, Vinaigrette.",
+      "image": "https://cdn.pixabay.com/photo/2014/06/21/21/00/salad-374173_1280.jpg",
+      "price": 6.49
+    },
+    {
+      "id": 4,
+      "name": "Quinoa Salad",
+      "description": "Quinoa, Black Beans, Corn, Red Pepper, Lime Dressing.",
+      "image": "https://cdn.pixabay.com/photo/2020/07/12/09/15/quinoa-5396618_1280.jpg",
+      "price": 9.25
+    },
+    {
+      "id": 5,
+      "name": "Caprese Salad",
+      "description": "Tomatoes, Mozzarella, Basil, Balsamic Glaze.",
+      "image": "https://cdn.pixabay.com/photo/2021/12/28/20/12/salad-6900127_1280.jpg",
+      "price": 8.50
+    },
+    {
+      "id": 6,
+      "name": "Cobb Salad",
+      "description": "Romaine, Grilled Chicken, Bacon, Eggs, Avocado, Blue Cheese.",
+      "image": "https://cdn.pixabay.com/photo/2015/01/03/18/19/salad-587669_1280.jpg",
+      "price": 10.99
+    }
+  ]
+  
