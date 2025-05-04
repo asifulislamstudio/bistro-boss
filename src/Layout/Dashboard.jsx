@@ -53,7 +53,7 @@ if (isAdminLoading && user?.email) {
                                 <NavLink to="/dashboard/cart">My Cart</NavLink></li>
                             <li className=' flex justify-center active:bg-blue-600  items-center gap-x-2 hover:bg-amber-900 hover:text-white text-center border-y-2 py-4 '>
                                 <FaWallet></FaWallet>
-                                <NavLink to="/">Payment History </NavLink></li>
+                                <NavLink to="/dashboard/paymenthistory">Payment History </NavLink></li>
                             <li className=' flex justify-center items-center gap-x-2 hover:bg-amber-900 hover:text-white text-center  py-4 '>
                                 <GrSchedules ></GrSchedules>
                                 <NavLink to="/">Reservation </NavLink></li>

@@ -15,6 +15,7 @@ import AdminRoutes from "./AdminRoutes";
 import MangeItems from "../Pages/ManageItems/MangeItems";
 import Edititems from "../Pages/Dashboard/Edititems";
 import Payment from "../Pages/Dashboard/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
           path: 'editItem/:id',
           element: <AdminRoutes><Edititems></Edititems></AdminRoutes>,
           loader: ({params}) => fetch(`http://localhost:8000/menu/${params.id}`)
+        },
+        {
+          path: 'paymenthistory',
+          element: <PaymentHistory></PaymentHistory>
         }
 
       ]

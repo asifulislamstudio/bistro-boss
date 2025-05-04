@@ -8,13 +8,14 @@ import Swal from "sweetalert2";
 
 
 const CheckOutForm = () => {
+    const [showTrxId, setShowTrxId] = useState('');
     const [error , setError] = useState('')
     const [clientSecret, setClientSecret] = useState('');
     const stripe = useStripe();
     const {user} = useAuth();
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
-    const [cart] = useCart();
+    const [cart, refetch] = useCart();
     const totalPrice = cart.reduce((total, item) => total + item.price, 0 )
     
     
@@ -69,7 +70,7 @@ const CheckOutForm = () => {
             console.log('payment intent', paymentIntent);
         }
         if(paymentIntent.status === 'succeeded'){
-            Swal.fire('Payment Successful', paymentIntent.id)
+            setShowTrxId(`Your Transaction Id is : ${paymentIntent.id}`)
             const payment = {
                 email: user.email,
                 price: totalPrice,
@@ -81,7 +82,17 @@ const CheckOutForm = () => {
             }
 
             const res = await axiosSecure.post('/payments', payment)
-            console.log('payment Saved', res.data);
+            
+            refetch();
+            if(res.data?.paymentResult?.insertedId){
+                Swal.fire({
+                    position: "center-center",
+                    icon: "success",
+                    title: "Taka Paisi Dhonnobad",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
 
         }
     }
@@ -113,6 +124,7 @@ const CheckOutForm = () => {
         Pay
       </button>
       <p className="text-red-600">{error}</p>
+      <p className="text-green-600">{showTrxId}</p>
        </form>
 )};
 
