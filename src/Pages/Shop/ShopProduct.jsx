@@ -37,7 +37,7 @@ const ShopProduct = ({item}) => {
                         confirmButtonText: "Show My Cart"
                       }).then((result) => {
                         if (result.isConfirmed) {
-                          navigate('/')
+                          navigate('/dashboard/cart')
                         }
                       });
                 }

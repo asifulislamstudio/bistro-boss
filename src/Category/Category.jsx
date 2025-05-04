@@ -13,8 +13,8 @@ import slide5 from '../assets/home/slide5.jpg'
 const Category = () => {
     return (
             <Swiper
-                slidesPerView={4}
-                spaceBetween={-120}
+                slidesPerView={5}
+                spaceBetween={-100}
                 centeredSlides={true}
                 pagination={{
                     clickable: true,

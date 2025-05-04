@@ -18,7 +18,7 @@ const ProductCard = () => {
             subheading={'---Should Try---'}
             heading={'CHEF RECOMMENDS'}
             ></SectionTitle>
-            <div className=" grid md:grid-cols-3 gap-5 w-[70%] mx-auto">
+            <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-[90%] md:w-[70%] mx-auto">
                 {
                     products.map(product => <Products key={product.id} product={product}></Products>)
                 }

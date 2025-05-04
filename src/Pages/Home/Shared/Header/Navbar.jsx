@@ -8,13 +8,17 @@ import useCart from "../../../../hooks/useCart";
 const Navbar = () => {
     
     const navigate = useNavigate();
-    const { user, logOutUser } = useContext(AuthContext)
+    const { user, logOutUser, loading } = useContext(AuthContext)
     const [cart] = useCart();
 
     const handlelogOutUser = () => {
+        if(loading){
+            return <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-sky-900 border-sky-400"></div>
+        }
         logOutUser()
             .then(res => {
                 toast.success('User LogOut Successfuly')
+                localStorage.removeItem('access-token');
                 navigate('/')
             })
     }
@@ -22,7 +26,7 @@ const Navbar = () => {
     const NavMenu = <>
         <li><NavLink to="/">HOME</NavLink></li>
         <li><NavLink to="/contact">CONTACT US</NavLink></li>
-        <li><NavLink to="/">DASHBOARD</NavLink></li>
+        <li><NavLink to="/dashboard">DASHBOARD</NavLink></li>
         <li><NavLink to="/menu"> OUR MENU</NavLink></li>
         <li><NavLink to="/shop/salad">OUR SHOP</NavLink></li>
     </>
@@ -47,7 +51,7 @@ const Navbar = () => {
                     {NavMenu}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end hidden md:flex">
                <Link to="dashboard/cart">
                <div className="relative w-fit mr-2">
                     <FaShoppingCart className="text-3xl"></FaShoppingCart>

@@ -1,8 +1,8 @@
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col w-full">
-            <div className="flex">
+        <footer className="flex  flex-col w-full">
+            <div className="flex flex-col lg:flex-row">
                 <div className="bg-[#1F2937] flex-1/2 flex flex-col justify-center items-center text-white p-28 ">
                     <h5 className="text-2xl font-bold">CONTACT US</h5>
                     <p className="text-center mt-4">123 ABS Street, Uni 21, Bangladesh<br></br>

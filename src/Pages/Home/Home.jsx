@@ -1,4 +1,5 @@
-import { Helmet } from "react-helmet-async";
+
+
 import Category from "../../Category/Category";
 import AboutBistro from "./AboutBistro";
 import Feature from "./Feature/Feature";
@@ -12,15 +13,14 @@ import Slider from "./Slider";
 const Home = () => {
     return (
         <>
-        <Helmet>
-            <title> Home | Bistro Boss </title>
-        </Helmet>
+           
             <Slider></Slider>
-            <div className="max-w-screen-2xl mx-auto my-28 ">
-                <SectionTitle
-                    subheading={'---From 11:00am to 10:00pm---'}
-                    heading={'ORDER ONLINE'}
-                ></SectionTitle>
+            <SectionTitle
+                subheading={'---From 11:00am to 10:00pm---'}
+                heading={'ORDER ONLINE'}
+            ></SectionTitle>
+
+            <div className="max-w-screen-2xl  my-28 ">
                 <Category></Category>
             </div>
             <div className="max-w-screen-2xl  mx-auto my-44 ">
@@ -29,7 +29,7 @@ const Home = () => {
             <div className="max-w-screen-2xl  mx-auto my-44 ">
                 <PopurlarMenu></PopurlarMenu>
             </div>
-            <div className="max-w-screen-2xl text-white text-center text-6xl font-semibold bg-black py-24  mx-auto my-44 ">
+            <div className="lg:max-w-screen-2xl text-white text-center lg:text-6xl font-semibold bg-black py-24  mx-auto my-44 ">
                 <h1>Call Us: 880 1700671150</h1>
             </div>
 

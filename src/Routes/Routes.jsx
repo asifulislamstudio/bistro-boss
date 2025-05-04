@@ -9,6 +9,12 @@ import PrivateRoutes from "./PrivateRoutes";
 import Contact from "../Pages/Contact/Contact";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart";
+import AllUsers from "../Pages/Dashboard/AllUsers";
+import AddItems from "../Pages/Dashboard/AddItems";
+import AdminRoutes from "./AdminRoutes";
+import MangeItems from "../Pages/ManageItems/MangeItems";
+import Edititems from "../Pages/Dashboard/Edititems";
+import Payment from "../Pages/Dashboard/Payment";
 
 
 const router = createBrowserRouter([
@@ -48,12 +54,36 @@ const router = createBrowserRouter([
     },
     {
       path: 'dashboard',
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
       children: [
         {
           path: 'cart',
           element: <Cart></Cart>
+        },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
+        },
+        // Admin Routes
+
+        {
+          path: 'users',
+          element: <AdminRoutes><AllUsers></AllUsers></AdminRoutes>
+        },
+        {
+          path: 'addItems',
+          element: <AdminRoutes><AddItems></AddItems></AdminRoutes>
+        },
+        {
+          path: 'manageItems',
+          element: <AdminRoutes><MangeItems></MangeItems></AdminRoutes>
+        },
+        {
+          path: 'editItem/:id',
+          element: <AdminRoutes><Edititems></Edititems></AdminRoutes>,
+          loader: ({params}) => fetch(`http://localhost:8000/menu/${params.id}`)
         }
+
       ]
     }
   ]);

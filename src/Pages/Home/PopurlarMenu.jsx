@@ -7,16 +7,7 @@ import useMenu from "../../hooks/useMenu";
 
 const PopurlarMenu = () => {
 
-    // const [menuData , setMenudata] = useState([])
-
-    // useEffect(()=>{
-    //     fetch('menu.json')
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         const popularMenuItems = data.filter(item => item.category === 'popular')
-    //         setMenudata(popularMenuItems)
-    //     } )
-    // },[])
+ 
 
     const [menu] = useMenu();
 
@@ -29,7 +20,7 @@ const PopurlarMenu = () => {
          heading={'FROM OUR MENU'}
          ></SectionTitle>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 mx-4 md:mx-0 gap-4">
                 {
                     popularMenu.map(item => <MenuItems key={item._id} item={item}></MenuItems> )
                 }

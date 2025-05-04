@@ -1,9 +1,6 @@
-import { Helmet } from "react-helmet-async";
+
 import PageCover from "../Home/Shared/PageCover/PageCover";
 import SectionTitle from "../Home/Shared/SectionTitle";
-import ProductCard from "../Home/ProductCard";
-import MenuItems from "../Home/Shared/MenuItems/MenuItems";
-import PopurlarMenu from "../Home/PopurlarMenu";
 import useMenu from "../../hooks/useMenu";
 import MenuCategory from "./MenuCategory";
 import DessertBg from "../../assets/menu/dessert-bg.jpeg";
@@ -13,20 +10,22 @@ import SoupBg from "../../assets/menu/soup-bg.jpg";
 
 
 
+
 const Menu = () => {
 
-    const [menu] = useMenu();
+    const [menu, loading] = useMenu();
     const desserts = menu.filter(items => items.category === 'dessert')
     const soup = menu.filter(items => items.category === 'soup')
     const salad = menu.filter(items => items.category === 'salad')
     const pizza = menu.filter(items => items.category === 'pizza')
     const offered = menu.filter(items => items.category === 'offered')
+    if(loading){
+        return <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-sky-900 border-sky-400"></div>
+    }
 
     return (
         <div className="">
-            <Helmet>
-                <title>Menu | Bistro Boss </title>
-            </Helmet>
+         
             <PageCover
                 heading={'OUR MENU'}
                 subHeading={'Would You Like TO Try A DISH?'}

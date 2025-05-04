@@ -3,7 +3,10 @@ import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-
 import { AuthContext } from '../../providers/AuthProvider';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import SocialLogin from '../Home/Shared/SocialLogin';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const Login = () => {
+    const [showPass, setShowPass] = useState(true)
     const {loginUser} = useContext(AuthContext)
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true);
@@ -59,11 +62,14 @@ const Login = () => {
                             />
 
                             
+                            <div className='relative'>
                             <input 
                             className="flex h-10 w-full rounded-md border px-3 py-2 text-sm focus:outline-none  focus:ring-1" placeholder="Password" 
-                            type="password"
+                            type= {showPass ? 'text' : 'password'} 
                             name="password"
                             />
+                            <span onClick={() => setShowPass(!showPass)} className='btn btn-ghost text-xl absolute bottom-[0px] right-[0px]'>{showPass ?  <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</span>
+                            </div>
                         </div>
                         <div>
                             {/* Capthca */}
@@ -98,27 +104,7 @@ const Login = () => {
                         <Link to='/signup'>Create Account</Link>
                     </button>
                     <p className="my-4 text-center">OR</p>
-                    <button className="mb-2 flex h-10 w-full items-center justify-center gap-1 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="size-6 text-white"
-                        >
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                        </svg>
-                        SIGN IN WITH FACEBOOK
-                    </button>
-                    <button className="flex h-10 w-full items-center justify-center gap-1 rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="size-6 fill-current">
-                            <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
-                        </svg>
-                        SIGN IN WITH GOOGLE
-                    </button>
+                   <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>

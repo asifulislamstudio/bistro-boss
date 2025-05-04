@@ -16,7 +16,7 @@ const Feature = () => {
                         heading={'FROM OUR MENU'}
                     ></SectionTitle>
                 </div>
-                <div className="flex w-2/3 mx-auto gap-x-8">
+                <div className="flex flex-col lg:flex-row w-2/3 mx-auto gap-x-8">
                     <img className="w-[400px] shadow-2xl" src={fImag} alt="" />
                     <div className="text-white">
                         <h4 className="font-semibold text-xl">March 20, 2025</h4>

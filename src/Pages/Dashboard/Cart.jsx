@@ -4,6 +4,7 @@ import SectionTitle from "../Home/Shared/SectionTitle";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     const [cart, refetch] = useCart();
@@ -46,7 +47,11 @@ const Cart = () => {
                 <div className="flex justify-around">
                     <h3 className="font-bold text-3xl">Total Orders: {cart.length}</h3>
                     <h3 className="font-bold text-3xl">Total Price: ${totalPrice} </h3>
-                    <button className=" flex  items-center justify-center text-xl btn bg-amber-400 "><FaMoneyBill></FaMoneyBill> Pay</button>
+                        { cart.length ? <Link
+                        to='/dashboard/payment'
+                        ><button  className=" flex  items-center justify-center text-xl btn bg-amber-400 "><FaMoneyBill></FaMoneyBill> Pay</button></Link> : 
+                        <button disabled  className=" flex  items-center justify-center text-xl btn bg-amber-400 "><FaMoneyBill></FaMoneyBill> Pay</button>
+                    }
                 </div>
                 <div>
 
